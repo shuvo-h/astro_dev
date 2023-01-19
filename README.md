@@ -3,6 +3,8 @@
 
 **Deadline: 24/01/2023**
 
+**Completed Live Url at: [https://lens-ai.netlify.app/](https://lens-ai.netlify.app)**
+
 **You will have to upload the code to a private Github repository and add @w0xter as a member to review the code. **
 
 The goal is to create [a feed like that of LensAI](https://www.artofficialintelligence.xyz/gallery) where you can explore images from the community. The most basic version of this will be to replicate the Community gallery of LensAI where you can explore posts in chronological order or using different filters. After completing the task, you will need to extend the functionality to be able to [view a user's profile](https://www.artofficialintelligence.xyz/user/w0xt3r.lens) and a [post page](https://www.artofficialintelligence.xyz/post/0xbedb-0xd7) with more information such as the description or comments.
