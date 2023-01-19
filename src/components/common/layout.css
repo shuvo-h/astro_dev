@@ -1,0 +1,31 @@
+.container{
+    margin: auto;
+}
+
+@media screen and (min-width: 411px) {
+    .container{
+        margin: 0 10px;
+    }
+}
+@media screen and (min-width: 560px) {
+    .container{
+        margin: 0 20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .container{
+        margin: 0 30px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container{
+        margin: 0 5%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container{
+        max-width: 1400px;
+        margin: auto;
+    }
+}

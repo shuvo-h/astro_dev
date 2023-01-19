@@ -1,0 +1,92 @@
+.profile_wrapper{
+    display: block;
+}
+.profile_img{
+    width: 100%;
+}
+
+.follow{
+    background-color: #141414;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+.follow img{
+    width: 50px;
+    border-radius: 50%;
+}
+.follow_parts{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.grey{
+    color: var(--color-grey);
+}
+.profile_posts{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 1rem;
+    background-color: #141414;
+    padding: 1rem;
+    border-radius: 8px;
+}
+.profile_post {
+    --profile-card-radius: 5px;
+    position: relative;
+    width: 100%;
+    border-radius: var(--profile-card-radius);
+    cursor: pointer;
+}
+.profile_post img{
+    width: 100%;
+    border-radius: var(--profile-card-radius);
+}
+.profile_post .post_stats{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000d5;
+    display: flex;
+    justify-content: space-around;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+.profile_post:hover .post_stats{
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+}
+.profile_post .post_stat{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 5px 0;
+}
+@media screen and (min-width: 560px) {
+    .profile_wrapper{
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 1rem;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .profile_posts{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+@media screen and (min-width: 1200px) {
+    .profile_posts{
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+}
+
+@media screen and (min-width: 1400px) {
+    .profile_posts{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
