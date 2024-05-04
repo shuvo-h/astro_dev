@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import MainComponent from "../components/ui/MainComponent.astro";
+import H1Component from "../components/ui/H1Component.astro";
+import PostList from "../components/PostList.astro";
+
+
+const posts = await getCollection("posts")
+console.log(posts);
+
+---
+
+
+<Layout title="Blog Page">
+	<MainComponent>
+		
+		<H1Component text="Data fetching from Static Collection" />
+		<section>
+            <PostList posts={posts} />
+            <!-- 
+                {
+                posts.map(post=>{
+                    return <div>
+                        <a href={`/blog/${post.slug}`}>
+                            <h2>{post.data.title}</h2>
+                        </a>
+                    </div>
+                })
+            } -->
+        </section>
+	</MainComponent>
+</Layout>
+

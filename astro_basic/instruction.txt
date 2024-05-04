@@ -1,0 +1,21 @@
+// create collection : use collection schema 
+    - create a src/content/config.ts file
+    - Define each collection Schema 
+    - export all collections as like database
+
+
+ViewTransitions:
+    - in the layout page, at <Head> with meta data, call this <ViewTransitions />
+
+SSR(Server Side Rendering):
+    - in astro.config.mjs file add output:"server"
+    `
+        export default defineConfig({
+        integrations: [tailwind()],
+                output:"server"    // it will now be server side rendering
+        });
+    `
+    - getStaticPaths method for dynamic routung need extra configuration. every where we will use the method for slugs, we need
+    export const prerender = true;    // it indicate that, this page is static page, when false, it will SSR page
+
+

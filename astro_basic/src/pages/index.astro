@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import H1Component from '../components/ui/H1Component.astro';
+import MainComponent from '../components/ui/MainComponent.astro';
+
+export const prerender = true; // only if need static page
+---
+
+<Layout title="Learn Home Page">
+	<MainComponent>
+		
+		<H1Component text="Hearn Home Page" />
+		
+	</MainComponent>
+</Layout>
+

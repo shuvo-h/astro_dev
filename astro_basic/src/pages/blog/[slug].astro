@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import MainComponent from '../../components/ui/MainComponent.astro';
+import H1Component from '../../components/ui/H1Component.astro';
+import { Image } from 'astro:assets';
+import { getEntryBySlug } from 'astro:content';
+
+/*
+// for statically generating use getStaticPaths method
+export const prerender = true; // only if need static page
+export const getStaticPaths = async() =>{
+    const posts = await getCollection("posts");
+    const paths = posts.map(post =>{
+        return {
+            params:{
+                slug: post.slug
+            },
+            props:{
+                post
+            }
+        }
+    })
+    return paths
+}
+type Props = {
+    post: CollectionEntry<"posts">;
+}
+const {post} = Astro.props
+*/
+
+// <!-- --- server side rendering START--------- -->
+const {slug} = Astro.params;
+const post = await getEntryBySlug("posts",slug as string)
+if (!post) {
+    return Astro.redirect("/404")
+}
+// <!-- --- server side rendering END--------- -->
+
+
+const {Content} = await post.render(); // it return the .md file detais contet part
+---
+
+
+<Layout title="Blog details Page">
+	<MainComponent>
+		<H1Component text="Dynamic routing" />
+		<section>
+            <h3 class="text-2xl text-bold">{post.data.title}</h3>
+            <Image 
+                src={post.data.image} 
+                width={1024} 
+                height={600/1.5} 
+                alt=""
+                class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover"
+            >
+            <!-- to render the content from MD, we need "@tailwindcss/typography" install and add in tailwind.config.mjs file  -->
+            <div class="prose prose-2xl overflow-visible relative mb-20">
+                <Content />
+            </div>
+        </section>
+	</MainComponent>
+</Layout>
+
